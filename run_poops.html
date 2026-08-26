@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" manifest="cache.appcache">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hassoun&Gaming</title>
+<style>
+  /* تم تعديل الخلفية هنا لعرض الصورة بشكل كامل ومثبت */
+  html, body { 
+    margin:0; 
+    padding:0; 
+    background: url('preview.png') no-repeat center center fixed; 
+    background-size: cover;
+    color:#c8ced8;
+    font:15px/1.45 "Segoe UI", system-ui, sans-serif; 
+    height: 100vh;
+  }
+  #wrap { padding:16px 18px; }
+  #state { font-size:22px; font-weight:700; margin:0 0 10px; }
+  
+  /* تعديل صندوق النصوص ليصبح شبه شفاف وخلفيته داكنة ومريحة للعين */
+  #out { white-space:pre-wrap; font:12px/1.45 Consolas, monospace;
+         background: rgba(17, 21, 27, 0.85); 
+         border:1px solid #1e2732; border-radius:5px;
+         padding:10px 12px; height:calc(100vh - 141px); overflow-y:auto; 
+         box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  }
+  .ok { color:#7fd0a0; } .bad { color:#d08a7f; } .warn { color:#d8c07f; }
+  
+  /* تعديل الهيدر العلوي ليتناسب مع المظهر الجديد للموقع */
+  #brand { text-align:center; padding:8px 10px; background: rgba(14, 17, 22, 0.9);
+           border-bottom:1px solid #1e2732; }
+  #brand img { width:28px; height:28px; margin-right:8px; border-radius:50%;
+               vertical-align:middle; }
+  #brand b { font-size:15px; font-weight:700; letter-spacing:.14em;
+             color:#e6ebf2; vertical-align:middle; }
+</style>
+</head>
+<body>
+<div id="brand"><img src="logo_raw.png" alt="" width="28" height="28"><b>Hassoun&Gaming-0123783040</b></div>
+<div id="wrap">
+  <div id="state">loading poops chain...</div>
+  <div id="out"></div>
+</div>
+<script type="module">import "./chain_poops.js";</script>
+</body>
+</html>
+
