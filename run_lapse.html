@@ -31,21 +31,36 @@
   }
   .ok { color:#7fd0a0; } .bad { color:#d08a7f; } .warn { color:#d8c07f; }
   
-  /* تعديل الهيدر العلوي ليتناسب مع المظهر الجديد للموقع */
-  #brand { text-align:center; padding:8px 10px; background: rgba(14, 17, 22, 0.9);
-           border-bottom:1px solid #1e2732; }
-  #brand img { width:28px; height:28px; margin-right:8px; border-radius:50%;
-               vertical-align:middle; }
-  #brand b { font-size:15px; font-weight:700; letter-spacing:.14em;
-             color:#e6ebf2; vertical-align:middle; }
+  /* تعديل الهيدر العلوي: تم إزالة الخلفية والحدود وتكبير الخط */
+  #brand { 
+    text-align:center; 
+    padding:15px 10px 5px; /* زيادة مسافة الحشو العلوية */
+    background: transparent; /* جعل الخلفية شفافة بالكامل */
+    border-bottom: none; /* إزالة الخط السفلي */
+  }
+  #brand img { 
+    width:32px; /* تكبير بسيط للشعار ليتناسق مع الخط الجديد */
+    height:32px; 
+    margin-right:8px; 
+    border-radius:50%;
+    vertical-align:middle; 
+  }
+  #brand b { 
+    font-size:18px; /* تكبير حجم خط النص هنا */
+    font-weight:700; 
+    letter-spacing:.14em;
+    color:#e6ebf2; 
+    vertical-align:middle; 
+  }
 </style>
 </head>
 <body>
-<div id="brand"><img src="logo_raw.png" alt="" width="28" height="28"><b>Hassoun&Gaming-0123783040</b></div>
+<!-- السطر المطلوب تعديله أصبح الآن شفافاً وبخط أكبر -->
+<div id="brand"><img src="logo_raw.png" alt="" width="32" height="32"><b>Hassoun&Gaming-0123783040</b></div>
 <div id="wrap">
-  <div id="state">دنقلا-السوق الكبير- تقاطع زين سابقا</div>
+  <div id="state">loading poops chain...</div>
   <!-- السطر الجديد المضاف أسفل السطر السابق لكتابة تفاصيلك المخصصة -->
-  <div id="details">تنبيه: لا تقم بإغلاق هذه الصفحة أو الضغط على أي زر حتى يتم <b>تفعيل ثغرة الـ Poops بنجاح</b>.</div>
+  <div id="details">تنبيه: لا تقم بإغلاق هذه الصفحة أو الضغط على أي زر حتى يتم <b>lapse تفعيل بنجااح</b>.</div>
   <div id="out"></div>
 </div>
 <script type="module">import "./chain_lapse.js";</script>
