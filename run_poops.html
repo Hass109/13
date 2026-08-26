@@ -18,11 +18,15 @@
   #wrap { padding:16px 18px; }
   #state { font-size:22px; font-weight:700; margin:0 0 10px; }
   
+  /* ستايل مخصص لسطر التفاصيل الجديد */
+  #details { font-size:14px; color:#8b95a3; margin:-5px 0 15px; }
+  #details b { color:#7fd0a0; } /* لون أخضر خفيف للكلمات المهمة */
+
   /* تعديل صندوق النصوص ليصبح شبه شفاف وخلفيته داكنة ومريحة للعين */
   #out { white-space:pre-wrap; font:12px/1.45 Consolas, monospace;
          background: rgba(17, 21, 27, 0.85); 
          border:1px solid #1e2732; border-radius:5px;
-         padding:10px 12px; height:calc(100vh - 141px); overflow-y:auto; 
+         padding:10px 12px; height:calc(100vh - 170px); overflow-y:auto; 
          box-shadow: 0 4px 15px rgba(0,0,0,0.4);
   }
   .ok { color:#7fd0a0; } .bad { color:#d08a7f; } .warn { color:#d8c07f; }
@@ -39,10 +43,11 @@
 <body>
 <div id="brand"><img src="logo_raw.png" alt="" width="28" height="28"><b>Hassoun&Gaming-0123783040</b></div>
 <div id="wrap">
-  <div id="state">loading poops chain...</div>
+  <div id="state">دنقلا-السوق الكبير- تقاطع زين سابقا</div>
+  <!-- السطر الجديد المضاف أسفل السطر السابق لكتابة تفاصيلك المخصصة -->
+  <div id="details">تنبيه: لا تقم بإغلاق هذه الصفحة أو الضغط على أي زر حتى يتم <b>تفعيل ثغرة الـ Poops بنجاح</b>.</div>
   <div id="out"></div>
 </div>
 <script type="module">import "./chain_poops.js";</script>
 </body>
 </html>
-
