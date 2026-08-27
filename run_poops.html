@@ -30,39 +30,27 @@
   /* الهيدر العلوي: شفاف تماماً وبخط ضخم جداً وعريض */
   #brand { 
     display: flex;
-    flex-direction: column; /* ترتيب العناصر عمودياً ليصبح سطرين */
     align-items: center;
     justify-content: center;
     padding: 10px 0;
     background: transparent !important; 
     border: none !important;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
-#brand img { 
+  #brand img { 
     width: 48px; 
     height: 48px; 
-    margin-bottom: 8px; /* تباعد سفلي للشعار */
+    margin-right: 15px; 
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(255,255,255,0.3);
   }
-  
-  /* تنسيق السطر الأول (الاسم) */
-  #brand .title-main { 
-    font-size: 32px !important; 
+  #brand b { 
+    font-size: 32px !important; /* حجم ضخم جداً للخط */
     font-weight: 900; 
     text-transform: uppercase;
-    color: #c92020; 
+    color: #ffffff; 
+    /* تأثير توهج لضمان بروز شكل وتصميم الخط الجديد */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 4px 8px rgba(0,0,0,0.9);
-    margin: 0;
-  }
-
-  /* تنسيق السطر الثاني (رقم الهاتف) */
-  #brand .title-sub {
-    font-size: 22px !important; /* حجم أصغر قليلاً متناسق مع السطر الثاني */
-    font-weight: 900;
-    color: #96b830; /* لون ذهبي مميز للرقم ليبرز عن الاسم */
-    text-shadow: 0 0 8px rgba(255, 215, 64, 0.4), 0 2px 5px rgba(0,0,0,0.9);
-    margin-top: 4px; /* مسافة بسيطة بين السطرين */
   }
 
   /* التفاصيل والتعليمات */
@@ -74,7 +62,7 @@
     font-weight: bold;
     text-shadow: 0 2px 5px rgba(0,0,0,0.9);
   }
-  #details b { color: #820c01; font-weight: 900; }
+  #details b { color: #ffd740; font-weight: 900; }
 
   /* حالة النظام الحالية بتأثير النيون المتوهج */
   #state { 
@@ -112,16 +100,15 @@
 <body>
 
 <div id="main-container">
-  <!-- الهيدر المطور ليظهر في سطرين منفصلين بشكل منظم -->
+  <!-- الهيدر المعدل بتأثير الخط العريض وبدون أي خلفية تقليدية -->
   <div id="brand">
     <img src="logo_raw.png" alt="" width="48" height="48">
-    <div class="title-main">Hassoun & Gaming</div>
-    <div class="title-sub">0123783040</div>
+    <b>Hassoun&Gaming-0123783040</b>
   </div>
 
   <div id="state" class="warn">loading poops chain...</div>
   
-  <div id="details">Poopsحالة المتصفح: يرجى الانتظار حتى يتم تحميل المكونات وتفعيل ثغرة الـ <b></b> تلقائياً.</div>
+  <div id="details"> Poops حالة المتصفح: يرجى الانتظار حتى يتم تحميل المكونات وتفعيل ثغرة الـ<b></b> تلقائياً.</div>
   
   <div id="out"></div>
 </div>
