@@ -26,10 +26,10 @@
     padding: 20px 30px;
   }
 
-  /* الهيدر العلوي: تم تعديله ليسمح بتقسيم النص لسطرين عمودياً */
+  /* الهيدر العلوي الشفاف المكون من سطرين */
   #brand { 
     display: flex;
-    flex-direction: column; /* ترتيب العناصر عمودياً ليصبح سطرين */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 10px 0;
@@ -40,12 +40,12 @@
   #brand img { 
     width: 48px; 
     height: 48px; 
-    margin-bottom: 8px; /* تباعد سفلي للشعار */
+    margin-bottom: 8px; 
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(255,255,255,0.3);
   }
   
-  /* تنسيق السطر الأول (الاسم) */
+  /* السطر الأول (الاسم) */
   #brand .title-main { 
     font-size: 32px !important; 
     font-weight: 900; 
@@ -55,38 +55,46 @@
     margin: 0;
   }
 
-  /* تنسيق السطر الثاني (رقم الهاتف) */
+  /* السطر الثاني (الرقم) */
   #brand .title-sub {
-    font-size: 22px !important; /* حجم أصغر قليلاً متناسق مع السطر الثاني */
+    font-size: 22px !important; 
     font-weight: 900;
-    color: #ffd740; /* لون ذهبي مميز للرقم ليبرز عن الاسم */
+    color: #ffd740; 
     text-shadow: 0 0 8px rgba(255, 215, 64, 0.4), 0 2px 5px rgba(0,0,0,0.9);
-    margin-top: 4px; /* مسافة بسيطة بين السطرين */
+    margin-top: 4px; 
   }
 
-  /* التفاصيل والتعليمات */
-  #details { 
-    font-size: 16px; 
-    color: #a3aebf; 
-    margin-bottom: 15px; 
-    text-align: center;
-    font-weight: bold;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+  /* حاوية التغليف المطلوبة كودياً من ملف الـ JS الثغرة */
+  #wrap {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
   }
-  #details b { color: #ffd740; font-weight: 900; }
 
-  /* حالة النظام الحالية بتأثير النيون المتوهج */
+  /* حالة النظام الحالية (تم الحفاظ على المعرّف ليعمل مع الثغرة) */
   #state { 
     font-size: 26px; 
     font-weight: 900; 
-    margin-bottom: 20px; 
+    margin-bottom: 15px; 
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
     text-shadow: 0 0 12px rgba(255, 215, 64, 0.6);
   }
 
-  /* لوحة إخراج الأكواد بالخط الصغير المخصص */
+  /* التفاصيل والتعليمات الإضافية المخصصة */
+  #details-text { 
+    font-size: 15px; 
+    color: #a3aebf; 
+    margin-bottom: 15px; 
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+  }
+  #details-text b { color: #ffd740; font-weight: 900; }
+
+  /* لوحة إخراج الأكواد الشفافة المعتمة بنسبة 25% والخط الصغير */
   #out { 
     flex: 1;
     white-space: pre-wrap; 
@@ -102,7 +110,7 @@
     margin-bottom: 10px;
   }
 
-  /* ألوان الحالات المتوهجة */
+  /* ألوان الحالات المتوهجة للأكواد */
   .ok { color: #69f0ae; text-shadow: 0 0 8px rgba(105,240,174,0.5); } 
   .bad { color: #ff5252; text-shadow: 0 0 8px rgba(255,82,82,0.5); } 
   .warn { color: #ffd740; text-shadow: 0 0 8px rgba(255,215,64,0.5); }
@@ -111,7 +119,7 @@
 <body>
 
 <div id="main-container">
-  <!-- الهيدر المطور ليظهر في سطرين منفصلين بشكل منظم -->
+  <!-- الهيدر المكون من سطرين وشعار شفاف -->
   <div id="brand">
     <img src="logo_raw.png" alt="" width="48" height="48">
     <div class="title-main">Hassoun & Gaming</div>
