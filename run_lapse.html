@@ -30,27 +30,39 @@
   /* الهيدر العلوي: شفاف تماماً وبخط ضخم جداً وعريض */
   #brand { 
     display: flex;
+    flex-direction: column; /* ترتيب العناصر عمودياً ليصبح سطرين */
     align-items: center;
     justify-content: center;
     padding: 10px 0;
     background: transparent !important; 
     border: none !important;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
-  #brand img { 
+#brand img { 
     width: 48px; 
     height: 48px; 
-    margin-right: 15px; 
+    margin-bottom: 8px; /* تباعد سفلي للشعار */
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(255,255,255,0.3);
   }
-  #brand b { 
-    font-size: 32px !important; /* حجم ضخم جداً للخط */
+  
+  /* تنسيق السطر الأول (الاسم) */
+  #brand .title-main { 
+    font-size: 32px !important; 
     font-weight: 900; 
     text-transform: uppercase;
-    color: #7784fc; 
-    /* تأثير توهج لضمان بروز شكل وتصميم الخط الجديد */
+    color: #c92020; 
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 4px 8px rgba(0,0,0,0.9);
+    margin: 0;
+  }
+
+  /* تنسيق السطر الثاني (رقم الهاتف) */
+  #brand .title-sub {
+    font-size: 22px !important; /* حجم أصغر قليلاً متناسق مع السطر الثاني */
+    font-weight: 900;
+    color: #96b830; /* لون ذهبي مميز للرقم ليبرز عن الاسم */
+    text-shadow: 0 0 8px rgba(255, 215, 64, 0.4), 0 2px 5px rgba(0,0,0,0.9);
+    margin-top: 4px; /* مسافة بسيطة بين السطرين */
   }
 
   /* التفاصيل والتعليمات */
