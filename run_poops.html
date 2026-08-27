@@ -12,7 +12,6 @@
     background: url('preview.png') no-repeat center center fixed; 
     background-size: cover;
     color:#97b4de;
-    /* استخدام خطوط مدمجة عريضة جداً مدعومة من متصفح PS4 مجبرة */
     font-family: 'Arial Black', 'Impact', 'Segoe UI', sans-serif;
     height: 100vh;
     overflow: hidden;
@@ -60,12 +59,12 @@
   #brand .title-sub {
     font-size: 28px !important; 
     font-weight: 900;
-    color: #03964e; 
+    color: #071ff5; 
     text-shadow: 0 0 8px rgba(255, 215, 64, 0.4), 0 2px 5px rgba(0,0,0,0.9);
     margin-top: 4px; 
   }
 
-  /* حاوية التغليف المحمية والمطلوبة برمجياً لملف الـ JS لكي يبدأ التفعيل دون تعليق */
+  /* حاوية التغليف المحمية والمطلوبة برمجياً لملف الـ JS */
   #wrap {
     display: flex;
     flex-direction: column;
@@ -95,7 +94,7 @@
     text-shadow: 0 0 12px rgba(255, 215, 64, 0.6);
   }
 
-  /* لوحة إخراج الأكواد: تم تثبيت الخط هنا على حجم 9.5px ليظهر صغيراً ودقيقاً */
+  /* لوحة إخراج الأكواد: حجم 9.5px */
   #out { 
     flex: 1;
     white-space: pre-wrap; 
@@ -120,24 +119,48 @@
 <body>
 
 <div id="main-container">
-  <!-- الهيدر الملون المكون من سطرين وبدون خلفية -->
   <div id="brand">
     <img src="logo_raw.png" alt="" width="48" height="48">
     <div class="title-main">Hassoun & Gaming</div>
     <div class="title-sub">0123783040</div>
   </div>
 
-  <!-- حاوية الـ wrap الصافية لضمان قراءة ملف الـ JS لعناصرها وبدء الحقن فوراً -->
   <div id="wrap">
     <div id="state" class="warn">loading poops chain...</div>
-    
     <div id="details">حالة المتصفح: يرجى الانتظار حتى يتم تحميل المكونات وتفعيل ثغرة الـ <b>Poops</b> تلقائياً.</div>
-    
     <div id="out"></div>
   </div>
 </div>
+
+<!-- كود الفحص والمراقبة الجديد المدمج بطريقة آمنة لمتصفح الـ PS4 -->
+<script>
+  // 1. فحص فوري قبل تشغيل الثغرة لتغيير النص إذا كانت مفعّلة مسبقاً
+  if (localStorage.getItem("ps4_poops_done") === "true") {
+      document.getElementById("state").innerHTML = "GOLDHEN ALREADY ACTIVE";
+      document.getElementById("state").className = "ok";
+      document.getElementById("details").innerHTML = "تنبيه: <b style='color:#69f0ae;'>تم تفعيل الجيلبريك بنجاح بالفعل!</b> يمكنك الخروج وتشغيل ألعابك.";
+      document.getElementById("out").innerHTML = "<span class='ok'>[INFO] Exploit already executed successfully inside this session.\n[INFO] No need to run again. Press PS Button to exit.</span>";
+  }
+
+  // 2. مراقبة ذكية لصندوق المخرجات لحفظ النجاح فور ظهور عبارة التفعيل النهائية
+  var outBox = document.getElementById("out");
+  if (outBox) {
+      var checkObserver = new MutationObserver(function() {
+          var text = outBox.innerText.toLowerCase();
+          if (text.includes("all done") || text.includes("success") || text.includes("goldhen launched")) {
+              localStorage.setItem("ps4_poops_done", "true");
+          }
+      });
+      checkObserver.observe(outBox, { childList: true, characterData: true, subtree: true });
+  }
+</script>
   
-<!-- الاستدعاء الفردي الصافي والمباشر لملف الثغرة لمنع التجميد والتعليق -->
-<script type="module">import "./chain_poops.js";</script>
+<!-- استدعاء ملف الثغرة الأصلي بأمان (لن يتعطل الآن) -->
+<script type="module">
+  // لا نقوم بعمل import إذا كان التفعيل مخزن مسبقاً لحماية المتصفح من الانهيار
+  if (localStorage.getItem("ps4_poops_done") !== "true") {
+      import "./chain_poops.js";
+  }
+</script>
 </body>
 </html>
