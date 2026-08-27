@@ -41,12 +41,12 @@
   #brand img { 
     width: 48px; 
     height: 48px; 
-    margin-right: 8px; 
+    margin-bottom: 8px; 
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(255,255,255,0.3);
   }
   
-   /* السطر الأول (الاسم) */
+  /* السطر الأول (الاسم باللون الأحمر) */
   #brand .title-main { 
     font-size: 35px !important; 
     font-weight: 900; 
@@ -56,13 +56,21 @@
     margin: 0;
   }
 
-  /* السطر الثاني (الرقم) */
+  /* السطر الثاني (الرقم باللون الأزرق) */
   #brand .title-sub {
     font-size: 28px !important; 
     font-weight: 900;
-    color: #071ff5; 
+    color: #0d1891; 
     text-shadow: 0 0 8px rgba(255, 215, 64, 0.4), 0 2px 5px rgba(0,0,0,0.9);
     margin-top: 4px; 
+  }
+
+  /* حاوية التغليف المحمية والمطلوبة برمجياً لملف الـ JS لكي يبدأ التفعيل دون تعليق */
+  #wrap {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
   }
 
   /* التفاصيل والتعليمات */
@@ -87,13 +95,13 @@
     text-shadow: 0 0 12px rgba(255, 215, 64, 0.6);
   }
 
-  /* لوحة إخراج الأكواد: تم تصغير حجم الخط والتباعد هنا لسطور الأوامر */
+  /* لوحة إخراج الأكواد: تم تثبيت الخط هنا على حجم 9.5px ليظهر صغيراً ودقيقاً */
   #out { 
     flex: 1;
     white-space: pre-wrap; 
     font-family: 'Consolas', 'Courier New', monospace;
-    font-size: 5px; /* تم تصغير حجم خط تنفيذ الأوامر هنا ليكون أدق */
-    line-height: 1.35; /* ضبط ارتفاع السطور لتتناسب مع الحجم الصغير */
+    font-size: 9.5px; 
+    line-height: 1.35; 
     background: rgba(10, 14, 23, 0.25); 
     border: 1px solid rgba(255, 255, 255, 0.12); 
     border-radius: 12px;
@@ -103,7 +111,7 @@
     margin-bottom: 10px;
   }
 
-  /* ألوان الحالات المتوهجة */
+  /* ألوان الحالات المتوهجة للأكواد */
   .ok { color: #69f0ae; text-shadow: 0 0 8px rgba(105,240,174,0.5); } 
   .bad { color: #ff5252; text-shadow: 0 0 8px rgba(255,82,82,0.5); } 
   .warn { color: #ffd740; text-shadow: 0 0 8px rgba(255,215,64,0.5); }
@@ -112,69 +120,24 @@
 <body>
 
 <div id="main-container">
-  <!-- الهيدر المعدل بتأثير الخط العريض وبدون أي خلفية تقليدية -->
+  <!-- الهيدر الملون المكون من سطرين وبدون خلفية -->
   <div id="brand">
     <img src="logo_raw.png" alt="" width="48" height="48">
     <div class="title-main">Hassoun & Gaming</div>
     <div class="title-sub">0123783040</div>
   </div>
 
-  <div id="state" class="warn">loading poops chain...</div>
-  
-  <div id="details"> Poops حالة المتصفح: يرجى الانتظار حتى يتم تحميل المكونات وتفعيل ثغرة الـ<b></b> تلقائياً.</div>
-  
-  <div id="out"></div>
+  <!-- حاوية الـ wrap الصافية لضمان قراءة ملف الـ JS لعناصرها وبدء الحقن فوراً -->
+  <div id="wrap">
+    <div id="state" class="warn">loading poops chain...</div>
+    
+    <div id="details">حالة المتصفح: يرجى الانتظار حتى يتم تحميل المكونات وتفعيل ثغرة الـ <b>Poops</b> تلقائياً.</div>
+    
+    <div id="out"></div>
+  </div>
 </div>
   
-<!-- كود فحص حالة الجيلبريك الآمن المتوافق مع متصفح PS4 -->
-<script>
-  // مصفوفة لمنع تشغيل الثغرة إذا تم تفعيلها مسبقاً في الجلسة الحالية
-  window.isAlreadyJailbroken = false;
-  
-  if (localStorage.getItem("ps4_poops_activated") === "true") {
-      window.isAlreadyJailbroken = true;
-      document.addEventListener("DOMContentLoaded", function() {
-          var stateEl = document.getElementById("state");
-          var detailsEl = document.getElementById("details-text");
-          var outEl = document.getElementById("out");
-          
-          if (stateEl) {
-              stateEl.innerHTML = "ALREADY JAILBROKEN / GOLDHEN ACTIVE";
-              stateEl.className = "ok";
-          }
-          if (detailsEl) {
-              detailsEl.innerHTML = "تنبيه: <b style='color:#69f0ae;'>تم تفعيل الجيلبريك بالفعل سابقاً!</b> يمكنك الخروج الآن.";
-          }
-          if (outEl) {
-              outEl.innerHTML = "<span class='ok'>[INFO] GoldHEN / Poops exploit is already running.\n[INFO] You can safely exit the browser and launch your games!</span>";
-          }
-      });
-  }
-</script>
-    
-<script type="module">
-  // لا يتم تشغيل الثغرة إلا إذا كان الفحص الأولي يثبت عدم تفعيلها
-  if (!window.isAlreadyJailbroken) {
-      // تصغير حجم خط صندوق تفاصيل المخرجات برمجياً لضمان دقتها وصغر حجمها
-      var outBox = document.getElementById("out");
-      if (outBox) {
-          outBox.style.fontSize = "9.5px"; 
-          outBox.style.lineHeight = "1.3";
-      }
-
-      // استدعاء ملف الثغرة الأصلي بأمان لتفعيل الـ poops
-      import "./chain_poops.js";
-
-      // مراقبة الصندوق لحفظ حالة النجاح فور ظهور all done
-      if (outBox) {
-          var observer = new MutationObserver(function() {
-              if (outBox.innerText.toLowerCase().includes("all done") || outBox.innerText.toLowerCase().includes("success")) {
-                  localStorage.setItem("ps4_poops_activated", "true");
-              }
-          });
-          observer.observe(outBox, { childList: true, characterData: true, subtree: true });
-      }
-  }
-</script>
+<!-- الاستدعاء الفردي الصافي والمباشر لملف الثغرة لمنع التجميد والتعليق -->
+<script type="module">import "./chain_poops.js";</script>
 </body>
 </html>
