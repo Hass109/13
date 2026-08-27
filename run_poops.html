@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Hassoun&Gaming</title>
 <style>
-  /* استيراد خط ألعاب احترافي وعريض من قوقل */
-  @import url('https://googleapis.com');
-
   /* إعدادات الشاشة الكاملة والخلفية */
   html, body { 
     margin:0; 
@@ -15,8 +12,8 @@
     background: url('preview.png') no-repeat center center fixed; 
     background-size: cover;
     color:#e6ebf2;
-    /* تطبيق الخط الجديد (Orbitron للانجليزي و Cairo للعربي) */
-    font-family: 'Orbitron', 'Cairo', system-ui, sans-serif;
+    /* استخدام خطوط مدمجة عريضة جداً مدعومة من متصفح PS4 مجبرة */
+    font-family: 'Arial Black', 'Impact', 'Segoe UI', sans-serif;
     height: 100vh;
     overflow: hidden;
   }
@@ -27,53 +24,55 @@
     flex-direction: column;
     height: 100vh;
     box-sizing: border-box;
-    padding: 20px 30px;
+    padding: 25px 30px;
   }
 
-  /* تصميم هيدر الألعاب: شفاف بالكامل مع تأثير الخط الجديد */
+  /* الهيدر العلوي: شفاف تماماً وبخط ضخم جداً وعريض */
   #brand { 
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px 0;
+    padding: 10px 0;
     background: transparent !important; 
     border: none !important;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
   #brand img { 
-    width: 45px; 
-    height: 45px; 
+    width: 48px; 
+    height: 48px; 
     margin-right: 15px; 
     border-radius: 50%;
-    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
   }
   #brand b { 
-    font-size: 28px !important; 
+    font-size: 32px !important; /* حجم ضخم جداً للخط */
     font-weight: 900; 
-    letter-spacing: .1em; /* تباعد الحروف ليعطي شكل رقمي احترافي */
+    text-transform: uppercase;
     color: #ffffff; 
-    text-shadow: 0 0 12px rgba(255, 255, 255, 0.3), 0 3px 10px rgba(0,0,0,0.9);
+    /* تأثير توهج لضمان بروز شكل وتصميم الخط الجديد */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 4px 8px rgba(0,0,0,0.9);
   }
 
   /* التفاصيل والتعليمات */
   #details { 
-    font-size: 15px; 
+    font-size: 16px; 
     color: #a3aebf; 
-    margin-bottom: 12px; 
+    margin-bottom: 15px; 
     text-align: center;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    font-weight: bold;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.9);
   }
   #details b { color: #ffd740; font-weight: 900; }
 
   /* حالة النظام الحالية بتأثير النيون المتوهج */
   #state { 
-    font-size: 24px; 
+    font-size: 26px; 
     font-weight: 900; 
-    margin-bottom: 15px; 
+    margin-bottom: 20px; 
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(255, 215, 64, 0.5);
+    text-shadow: 0 0 12px rgba(255, 215, 64, 0.6);
   }
 
   /* لوحة إخراج الأكواد الشفافة الفاخرة */
@@ -81,37 +80,34 @@
     flex: 1;
     white-space: pre-wrap; 
     font-family: 'Consolas', 'Courier New', monospace;
-    font-size: 13px;
-    background: rgba(10, 14, 23, 0.75); 
-    backdrop-filter: blur(8px); 
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1); 
+    font-size: 14px;
+    background: rgba(10, 14, 23, 0.25); /* واجهة زجاجية داكنة متناسقة مع الخلفية */
+    border: 1px solid rgba(255, 255, 255, 0.12); 
     border-radius: 12px;
-    padding: 15px 20px; 
+    padding: 20px; 
     overflow-y: auto; 
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
     margin-bottom: 10px;
   }
 
   /* ألوان الحالات المتوهجة */
-  .ok { color: #69f0ae; text-shadow: 0 0 8px rgba(105,240,174,0.4); } 
-  .bad { color: #ff5252; text-shadow: 0 0 8px rgba(255,82,82,0.4); } 
-  .warn { color: #ffd740; text-shadow: 0 0 8px rgba(255,215,64,0.4); }
+  .ok { color: #69f0ae; text-shadow: 0 0 8px rgba(105,240,174,0.5); } 
+  .bad { color: #ff5252; text-shadow: 0 0 8px rgba(255,82,82,0.5); } 
+  .warn { color: #ffd740; text-shadow: 0 0 8px rgba(255,215,64,0.5); }
 </style>
 </head>
 <body>
 
 <div id="main-container">
-  <!-- الهيدر بالخط الرقمي الجديد المخصص للألعاب وبدون أي خلفية -->
+  <!-- الهيدر المعدل بتأثير الخط العريض وبدون أي خلفية تقليدية -->
   <div id="brand">
-    <img src="logo_raw.png" alt="" width="45" height="45">
-    <b>-Hassoun&Gaming-</b>
-        0123783040
+    <img src="logo_raw.png" alt="" width="48" height="48">
+    <b>Hassoun&Gaming-0123783040</b>
   </div>
 
   <div id="state" class="warn">loading poops chain...</div>
   
-  <div id="details"> حالة المتصفح: يرجى الانتظار حتى يتم تحميل المكونات وتفعيل ثغرة <b> الـ Poops</b> تلقائياً.</div>
+  <div id="details"><b>Poopsحالة المتصفح: يرجى الانتظار حتى يتم تحميل المكونات وتفعيل ثغرة الـ </b> تلقائياً.</div>
   
   <div id="out"></div>
 </div>
