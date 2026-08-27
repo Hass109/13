@@ -76,17 +76,18 @@
   }
 
   /* لوحة إخراج الأكواد الشفافة الفاخرة */
-  #out { 
+ #out { 
     flex: 1;
     white-space: pre-wrap; 
     font-family: 'Consolas', 'Courier New', monospace;
-    font-size: 14px;
-    background: rgba(10, 14, 23, 0.25); /* واجهة زجاجية داكنة متناسقة مع الخلفية */
+    font-size: 11px; /* تم تصغير حجم خط تنفيذ الأوامر هنا ليكون أدق */
+    line-height: 1.35; /* ضبط ارتفاع السطور لتتناسب مع الحجم الصغير */
+    background: rgba(10, 14, 23, 0.25); 
     border: 1px solid rgba(255, 255, 255, 0.12); 
     border-radius: 12px;
-    padding: 20px; 
+    padding: 15px 20px; 
     overflow-y: auto; 
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8);
     margin-bottom: 10px;
   }
 
