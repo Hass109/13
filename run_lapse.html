@@ -121,11 +121,46 @@
 
   <div id="state" class="warn">loading lapse chain...</div>
   
-  <div id="details"> lapse حالة المتصفح: يرجى الانتظار حتى يتم تحميل المكونات وتفعيل ثغرة الـ<b></b> تلقائياً.</div>
+  <div id="details">lapse حالة المتصفح: يرجى الانتظار حتى يتم تحميل المكونات وتفعيل ثغرة الـ<b></b> تلقائياً.</div>
   
   <div id="out"></div>
 </div>
-
+  
+<!-- كود فحص كاش التفعيل ومنع التكرار -->
+<script>
+  if (localStorage.getItem("ps4_poops_activated") === "true") {
+      document.addEventListener("DOMContentLoaded", function() {
+          var stateEl = document.getElementById("state");
+          var detailsEl = document.getElementById("details-text");
+          var outEl = document.getElementById("out");
+          
+          if (stateEl) {
+              stateEl.innerHTML = "ALREADY JAILBROKEN / GOLDHEN ACTIVE";
+              stateEl.className = "ok";
+          }
+          if (detailsEl) {
+              detailsEl.innerHTML = "تنبيه: <b style='color:#69f0ae;'>تم تفعيل الجيلبريك بالفعل سابقاً!</b> لا داعي لإعادة التشغيل لتجنب تعليق الجهاز.";
+          }
+          if (outEl) {
+              outEl.innerHTML = "<span class='ok'>[INFO] GoldHEN / Poops exploit is already running in the background.\n[INFO] You can safely exit the browser and launch your games!</span>";
+          }
+      });
+      window.stop(); // إيقاف المتصفح فوراً لحماية الجهاز من التجميد
+  }
+    
 <script type="module">import "./chain_lapse.js";</script>
+
+  // دالة لمراقبة لوحة الأوامر وحفظ حالة النجاح تلقائياً فور ظهور عبارة النجاح
+  var targetBox = document.getElementById("out");
+  if (targetBox) {
+      var observer = new MutationObserver(function() {
+          // إذا طبع ملف الـ JS عبارة النجاح (مثل all done أو success) يتم تفعيل الذاكرة
+          if (targetBox.innerText.toLowerCase().includes("all done") || targetBox.innerText.toLowerCase().includes("success")) {
+              localStorage.setItem("ps4_lapse_activated", "true");
+          }
+      });
+      observer.observe(targetBox, { childList: true, characterData: true, subtree: true });
+  }
+</script>
 </body>
 </html>
