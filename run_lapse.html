@@ -12,7 +12,6 @@
     background: url('preview.png') no-repeat center center fixed; 
     background-size: cover;
     color:#e6ebf2;
-    /* استخدام خطوط مدمجة عريضة جداً مدعومة من متصفح PS4 مجبرة */
     font-family: 'Arial Black', 'Impact', 'Segoe UI', sans-serif;
     height: 100vh;
     overflow: hidden;
@@ -24,33 +23,45 @@
     flex-direction: column;
     height: 100vh;
     box-sizing: border-box;
-    padding: 25px 30px;
+    padding: 20px 30px;
   }
 
-  /* الهيدر العلوي: شفاف تماماً وبخط ضخم جداً وعريض */
+  /* الهيدر العلوي: تم تعديله ليسمح بتقسيم النص لسطرين عمودياً */
   #brand { 
     display: flex;
+    flex-direction: column; /* ترتيب العناصر عمودياً ليصبح سطرين */
     align-items: center;
     justify-content: center;
     padding: 10px 0;
     background: transparent !important; 
     border: none !important;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   #brand img { 
     width: 48px; 
     height: 48px; 
-    margin-right: 15px; 
+    margin-bottom: 8px; /* تباعد سفلي للشعار */
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(255,255,255,0.3);
   }
-  #brand b { 
-    font-size: 32px !important; /* حجم ضخم جداً للخط */
+  
+  /* تنسيق السطر الأول (الاسم) */
+  #brand .title-main { 
+    font-size: 32px !important; 
     font-weight: 900; 
     text-transform: uppercase;
     color: #ffffff; 
-    /* تأثير توهج لضمان بروز شكل وتصميم الخط الجديد */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 4px 8px rgba(0,0,0,0.9);
+    margin: 0;
+  }
+
+  /* تنسيق السطر الثاني (رقم الهاتف) */
+  #brand .title-sub {
+    font-size: 22px !important; /* حجم أصغر قليلاً متناسق مع السطر الثاني */
+    font-weight: 900;
+    color: #ffd740; /* لون ذهبي مميز للرقم ليبرز عن الاسم */
+    text-shadow: 0 0 8px rgba(255, 215, 64, 0.4), 0 2px 5px rgba(0,0,0,0.9);
+    margin-top: 4px; /* مسافة بسيطة بين السطرين */
   }
 
   /* التفاصيل والتعليمات */
@@ -75,13 +86,13 @@
     text-shadow: 0 0 12px rgba(255, 215, 64, 0.6);
   }
 
-  /* لوحة إخراج الأكواد الشفافة الفاخرة */
- #out { 
+  /* لوحة إخراج الأكواد بالخط الصغير المخصص */
+  #out { 
     flex: 1;
     white-space: pre-wrap; 
     font-family: 'Consolas', 'Courier New', monospace;
-    font-size: 11px; /* تم تصغير حجم خط تنفيذ الأوامر هنا ليكون أدق */
-    line-height: 1.35; /* ضبط ارتفاع السطور لتتناسب مع الحجم الصغير */
+    font-size: 11px; 
+    line-height: 1.35; 
     background: rgba(10, 14, 23, 0.25); 
     border: 1px solid rgba(255, 255, 255, 0.12); 
     border-radius: 12px;
@@ -100,15 +111,16 @@
 <body>
 
 <div id="main-container">
-  <!-- الهيدر المعدل بتأثير الخط العريض وبدون أي خلفية تقليدية -->
+  <!-- الهيدر المطور ليظهر في سطرين منفصلين بشكل منظم -->
   <div id="brand">
     <img src="logo_raw.png" alt="" width="48" height="48">
-    <b>Hassoun&Gaming-0123783040</b>
+    <div class="title-main">Hassoun & Gaming</div>
+    <div class="title-sub">0123783040</div>
   </div>
 
-  <div id="state" class="warn">loading poops chain...</div>
+  <div id="state" class="warn">loading lapse chain...</div>
   
-  <div id="details"><b>Poopsحالة المتصفح: يرجى الانتظار حتى يتم تحميل المكونات وتفعيل ثغرة الـ </b> تلقائياً.</div>
+  <div id="details"><b>lapseحالة المتصفح: يرجى الانتظار حتى يتم تحميل المكونات وتفعيل ثغرة الـ </b> تلقائياً.</div>
   
   <div id="out"></div>
 </div>
