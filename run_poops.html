@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Hassoun&Gaming</title>
 <style>
+  /* استيراد خط ألعاب احترافي وعريض من قوقل */
+  @import url('https://googleapis.com');
+
   /* إعدادات الشاشة الكاملة والخلفية */
   html, body { 
     margin:0; 
@@ -12,12 +15,13 @@
     background: url('preview.png') no-repeat center center fixed; 
     background-size: cover;
     color:#e6ebf2;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* تطبيق الخط الجديد (Orbitron للانجليزي و Cairo للعربي) */
+    font-family: 'Orbitron', 'Cairo', system-ui, sans-serif;
     height: 100vh;
     overflow: hidden;
   }
 
-  /* حاوية المحتوى الرئيسي المحسنة */
+  /* حاوية المحتوى الرئيسي */
   #main-container {
     display: flex;
     flex-direction: column;
@@ -26,7 +30,7 @@
     padding: 20px 30px;
   }
 
-  /* تصميم هيدر الألعاب الجديد: تكبير الخط بالكامل وإلغاء الخلفية */
+  /* تصميم هيدر الألعاب: شفاف بالكامل مع تأثير الخط الجديد */
   #brand { 
     display: flex;
     align-items: center;
@@ -44,52 +48,52 @@
     box-shadow: 0 0 15px rgba(255,255,255,0.2);
   }
   #brand b { 
-    font-size: 26px !important; /* تكبير الخط بشكل ملحوظ وضخم */
+    font-size: 28px !important; 
     font-weight: 900; 
-    letter-spacing: .08em;
+    letter-spacing: .1em; /* تباعد الحروف ليعطي شكل رقمي احترافي */
     color: #ffffff; 
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 0 5px rgba(230, 235, 242, 0.3);
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.3), 0 3px 10px rgba(0,0,0,0.9);
   }
 
-  /* التفاصيل والتعليمات فوق صندوق الأكواد */
+  /* التفاصيل والتعليمات */
   #details { 
     font-size: 15px; 
     color: #a3aebf; 
     margin-bottom: 12px; 
     text-align: center;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
   }
-  #details b { color: #d8c07f; font-weight: 600; }
+  #details b { color: #ffd740; font-weight: 900; }
 
   /* حالة النظام الحالية بتأثير النيون المتوهج */
   #state { 
     font-size: 24px; 
-    font-weight: 800; 
+    font-weight: 900; 
     margin-bottom: 15px; 
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 0 0 10px rgba(216, 192, 127, 0.4);
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 215, 64, 0.5);
   }
 
-  /* لوحة إخراج الأكواد الشفافة الفاخرة المستوحاة من واجهات الألعاب */
+  /* لوحة إخراج الأكواد الشفافة الفاخرة */
   #out { 
     flex: 1;
     white-space: pre-wrap; 
     font-family: 'Consolas', 'Courier New', monospace;
     font-size: 13px;
-    background: rgba(10, 14, 23, 0.75); /* شفافية زجاجية داكنة */
-    backdrop-filter: blur(8px); /* تأثير ضبابي خلف الصندوق */
+    background: rgba(10, 14, 23, 0.75); 
+    backdrop-filter: blur(8px); 
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.1); 
     border-radius: 12px;
     padding: 15px 20px; 
     overflow-y: auto; 
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
     margin-bottom: 10px;
   }
 
-  /* ألوان الحالات */
+  /* ألوان الحالات المتوهجة */
   .ok { color: #69f0ae; text-shadow: 0 0 8px rgba(105,240,174,0.4); } 
   .bad { color: #ff5252; text-shadow: 0 0 8px rgba(255,82,82,0.4); } 
   .warn { color: #ffd740; text-shadow: 0 0 8px rgba(255,215,64,0.4); }
@@ -98,16 +102,16 @@
 <body>
 
 <div id="main-container">
-  <!-- الهيدر الجديد: بدون خلفية وبخط ضخم وواضح جداً للـ PS4 -->
+  <!-- الهيدر بالخط الرقمي الجديد المخصص للألعاب وبدون أي خلفية -->
   <div id="brand">
     <img src="logo_raw.png" alt="" width="45" height="45">
-    <b>Hassoun&Gaming-0123783040</b>
+    <b>-Hassoun&Gaming-</b>
+        0123783040
   </div>
 
   <div id="state" class="warn">loading poops chain...</div>
   
-  <!-- سطر التفاصيل الإضافية المخصص أسفل السطر العلوي -->
-  <div id="details">حالة المتصفح: يرجى الانتظار حتى يتم <b>تحميل المكونات وتفعيل ثغرة الـ Poops</b> تلقائياً.</div>
+  <div id="details"> حالة المتصفح: يرجى الانتظار حتى يتم تحميل المكونات وتفعيل ثغرة <b> الـ Poops</b> تلقائياً.</div>
   
   <div id="out"></div>
 </div>
