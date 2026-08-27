@@ -12,6 +12,7 @@
     background: url('preview.png') no-repeat center center fixed; 
     background-size: cover;
     color:#97b4de;
+    /* استخدام خطوط مدمجة عريضة جداً مدعومة من متصفح PS4 مجبرة */
     font-family: 'Arial Black', 'Impact', 'Segoe UI', sans-serif;
     height: 100vh;
     overflow: hidden;
@@ -55,16 +56,16 @@
     margin: 0;
   }
 
-  /* السطر الثاني (الرقم باللون الأزرق) */
+  /* السطر الثاني (الرقم باللون الأخضر) */
   #brand .title-sub {
     font-size: 28px !important; 
     font-weight: 900;
-    color: #071ff5; 
+    color: #00572c; 
     text-shadow: 0 0 8px rgba(255, 215, 64, 0.4), 0 2px 5px rgba(0,0,0,0.9);
     margin-top: 4px; 
   }
 
-  /* حاوية التغليف المحمية والمطلوبة برمجياً لملف الـ JS */
+  /* حاوية التغليف المحمية والمطلوبة برمجياً لملف الـ JS لكي يبدأ التفعيل دون تعليق */
   #wrap {
     display: flex;
     flex-direction: column;
@@ -94,12 +95,12 @@
     text-shadow: 0 0 12px rgba(255, 215, 64, 0.6);
   }
 
-  /* لوحة إخراج الأكواد: حجم 9.5px */
+  /* لوحة إخراج الأكواد: تم تثبيت الخط هنا على حجم 7px كما في كودك المفضل ليظهر دقيقاً */
   #out { 
     flex: 1;
     white-space: pre-wrap; 
     font-family: 'Consolas', 'Courier New', monospace;
-    font-size: 9.5px; 
+    font-size: 7px; 
     line-height: 1.35; 
     background: rgba(10, 14, 23, 0.25); 
     border: 1px solid rgba(255, 255, 255, 0.12); 
@@ -108,6 +109,103 @@
     overflow-y: auto; 
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8);
     margin-bottom: 10px;
+  }
+
+  /* ألوان الحالات المتوهجة للأكواد */
+  .ok { color: #69f0ae; text-shadow: 0 0 8px rgba(105,240,174,0.5); } 
+  .bad { color: #ff5252; text-shadow: 0 0 8px rgba(255,82,82,0.5); } 
+  .warn { color: #ffd740; text-shadow: 0 0 8px rgba(255,215,64,0.5); }
+</style>
+</head>
+<body>
+
+<div id="main-container">
+  <!-- الهيدر الملون المكون من سطرين وبدون خلفية -->
+  <div id="brand">
+    <img src="logo_raw.png" alt="" width="48" height="48">
+    <div class="title-main">Hassoun & Gaming</div>
+    <div class="title-sub">0123783040</div>
+  </div>
+
+  <!-- حاوية الـ wrap الصافية لضمان قراءة ملف الـ JS لعناصرها وبدء الحقن فوراً -->
+  <div id="wrap">
+    <div id="state" class="warn">loading poops chain...</div>
+    
+    <div id="details">حالة المتصفح: يرجى الانتظار حتى يتم تحميل المكونات وتفعيل ثغرة الـ <b>Poops</b> تلقائياً.</div>
+    
+    <div id="out"></div>
+  </div>
+</div>
+
+<!-- كود الفحص والمراقبة الآمن المتوافق مع متصفح الـ PS4 -->
+<script>
+  // 1. فحص فوري لمنع تكرار التفعيل إذا تم بنجاح سابقاً في الجلسة
+  if (localStorage.getItem("ps4_poops_done") === "true") {
+      document.addEventListener("DOMContentLoaded", function() {
+          var stateEl = document.getElementById("state");
+          var detailsEl = document.getElementById("details");
+          var outEl = document.getElementById("out");
+          
+          if (stateEl) {
+              stateEl.innerHTML = "GOLDHEN ALREADY ACTIVE";
+              stateEl.className = "ok";
+          }
+          if (detailsEl) {
+              detailsEl.innerHTML = "تنبيه: <b style='color:#69f0ae;'>تم تفعيل الجيلبريك بنجاح بالفعل سابقاً!</b> يمكنك الخروج وتشغيل ألعابك.";
+          }
+          if (outEl) {
+              outEl.innerHTML = "<span class='ok'>[INFO] Exploit already executed successfully inside this session.\n[INFO] No need to run again. Press PS Button to exit.</span>";
+          }
+      });
+  }
+
+  // 2. مراقبة ذكية لصندوق المخرجات لحفظ النجاح تلقائياً فور ظهور عبارة التفعيل النهائية (all done)
+  var outBox = document.getElementById("out");
+  if (outBox) {
+      var checkObserver = new MutationObserver(function() {
+          var text = outBox.innerText.toLowerCase();
+          if (text.includes("all done") || text.includes("success") || text.includes("goldhen launched")) {
+              localStorage.setItem("ps4_poops_done", "true");
+          }
+      });
+      checkObserver.observe(outBox, { childList: true, characterData: true, subtree: true });
+  }
+</script>
+  
+<!-- استدعاء ملف الثغرة الأصلي بأمان مشروط بعدم تفعيلها مسبقاً -->
+<script type="module">
+  if (localStorage.getItem("ps4_poops_done") !== "true") {
+      import "./chain_poops.js";
+  }
+</script>
+</body>
+</html>
+</style>
+</head>
+<body>
+
+<div id="main-container">
+  <!-- الهيدر الملون المكون من سطرين وبدون خلفية -->
+  <div id="brand">
+    <img src="logo_raw.png" alt="" width="48" height="48">
+    <div class="title-main">Hassoun & Gaming</div>
+    <div class="title-sub">0123783040</div>
+  </div>
+
+  <!-- حاوية الـ wrap الصافية لضمان قراءة ملف الـ JS لعناصرها وبدء الحقن فوراً -->
+  <div id="wrap">
+    <div id="state" class="warn">loading poops chain...</div>
+    
+    <div id="details">حالة المتصفح: يرجى الانتظار حتى يتم تحميل المكونات وتفعيل ثغرة الـ <b>Poops</b> تلقائياً.</div>
+    
+    <div id="out"></div>
+  </div>
+</div>
+  
+<!-- الاستدعاء الفردي الصافي والمباشر لملف الثغرة لمنع التجميد والتعليق -->
+<script type="module">import "./chain_poops.js";</script>
+</body>
+</html>
   }
 
   /* ألوان الحالات المتوهجة للأكواد */
