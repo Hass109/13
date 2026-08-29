@@ -1,62 +1,95 @@
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>PS4 Jailbreak</title>
-    <style>
-      body {
-        background-color: #000000;
-        color: #ffffff;
-        font-family: "Segoe UI", Tahoma, sans-serif;
-        text-align: center;
-      }
-      .container {
-		position: relative;
-		z-index: 2;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-        }
-      .header-section {
-		text-align: center;
-      }
-      .main-title {
-		background: linear-gradient(45deg, #ff00aa, #00ffff, #ff00ff, #00ff9d);
-		background-size: 300% 300%;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		animation: gradientFlow 8s ease infinite;
-		text-shadow: 0 0 30px rgba(255, 0, 170, 0.7);
-      }
-      @keyframes gradientFlow {
-		0% {background-position: 0% 50%;}
-		50% {background-position: 100% 50%;}
-		100% {background-position: 0% 50%;}
-      }
-      #console {
-        font-family: monospace;
-        color: #ffffff;
-        padding: 12px;
-        font-size: 18px;
-        text-align: left;
-      }
-    </style>
-    <script>
-      if (window.applicationCache.status === 0) { // 0: UNCACHED
-        window.location.replace("cache.html");
-      }
-    </script>
-  </head>
-  <body>
-    <div class="container">
-        <div class="header-section">
-            <h1 class="main-title">Auto JB PS4 5.05, 6.70 - 9.60</h1>
-        </div>
-    </div>
-    <div style='text-align:left;position:fixed;left:10px;bottom:10px;width:100%;font-size:12px;color:#888'><center>Special Thanks to:<br><strong> TheFloW - SpecterDev  -ChendoChap - Znullptr - Sleirsgoevy - SiSTRo - Feyzee - CM<br>And everyone who helps improve the PS4 scene</strong></center></font></div>
-	<pre id="console"></pre>
-  </body>
-  <script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hassoun&Gaming - Exploit (5.05 - 9.60)</title>
+<style>
+  /* تطابق كامل مع خلفية وتصميم الهوست الرئيسي */
+  html, body { 
+    margin:0; 
+    padding:0; 
+    background: url('../preview.png') no-repeat center center fixed; 
+    background-size: cover;
+    color:#c8ced8;
+    font:15px/1.45 "Segoe UI", system-ui, sans-serif; 
+    height: 100vh;
+  }
+  
+  /* صندوق عرض البيانات شبه الشفاف المتناسق */
+  #wrap { 
+    padding:16px 18px; 
+    background: rgba(11, 13, 16, 0.85); 
+    margin: 20px; 
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  }
+  
+  .main-title { 
+    font-size:22px; 
+    font-weight:700; 
+    margin:0 0 12px;
+    color: #e6ebf2;
+  }
+
+  /* تصميم الكونسول النصي ليتماشى مع الوان الهوست */
+  #console {
+    font-family: monospace;
+    color: #7fd0a0; /* لون أخضر مريح للعين أثناء التحميل */
+    padding: 12px 0;
+    font-size: 16px;
+    text-align: left;
+    margin: 0;
+    white-space: pre-wrap;
+  }
+  
+  /* الهيدر العلوي المطابق للهوست الرئيسي */
+  #brand { 
+    text-align:center; 
+    padding:8px 10px; 
+    background: rgba(14, 17, 22, 0.9);
+    border-bottom:1px solid #1e2732; 
+  }
+  #brand img { width:28px; height:28px; margin-right:8px; border-radius:50%;
+               vertical-align:middle; }
+  #brand b { font-size:15px; font-weight:700; letter-spacing:.14em;
+             color:#e6ebf2; vertical-align:middle; }
+
+  /* تصميم التذييل السفلي بشكل متناسق وشبه شفاف */
+  .footer {
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 12px;
+    color: #5c6672;
+    background: rgba(14, 17, 22, 0.85);
+    border-top: 1px solid #1e2732;
+  }
+  .footer strong { color: #8b95a3; }
+</style>
+</head>
+<body>
+
+<!-- الهيدر العلوي المطابق تماماً للهوست الرئيسي -->
+<div id="brand"><img src="../logo_raw.png" alt="" width="28" height="28"><b>Hassoun & Gaming-0123783040</b></div>
+
+<div id="wrap">
+  <div class="main-title">Auto JB PS4 5.05, 6.70 - 9.60</div>
+  <!-- هنا تظهر مخرجات ورسائل الثغرة لتشبه ستايل الهوست الأصلي -->
+  <pre id="console"></pre>
+</div>
+
+<!-- التذييل السفلي منسق بالوان الهوست المتطابقة -->
+<div class="footer">
+  Special Thanks to:<br>
+  <strong>TheFloW - SpecterDev - ChendoChap - Znullptr - Sleirsgoevy - SiSTRo - Feyzee - CM</strong><br>
+  And everyone who helps improve the PS4 scene
+</div>
+
+<script>
     // 6.72 JB globals
     window.entrypoint672_result = 0;
     window.exploitsetup672_result = 0;
@@ -65,7 +98,8 @@
     // Logging utility
     var outputConsole = document.getElementById("console");
     window.log = function (msg, color) {
-      if (color === undefined) color = "#cccccc";
+      if (color === undefined) color = "#7fd0a0"; // اللون الافتراضي متناسق مع نجاح الكاش الأصلي
+      if (color === "red") color = "#d08a7f";     // لون الخطأ مطابق لـ "bad" في الهوست الأصلي
       outputConsole.innerHTML += '<span style="color:' + color + '">' + msg + '</span><br>';
     };
     // Get Script for ES5 JavaScript
@@ -101,7 +135,7 @@
       var ua = navigator.userAgent;
       var isPS4 = ua.indexOf("PlayStation 4") !== -1;
       var is67x = ((ua.indexOf(" 6.70") !== -1) || (ua.indexOf(" 6.71") !== -1) || (ua.indexOf(" 6.72") !== -1));
-      if (isPS4 && is67x && (window.applicationCache.status !== 0)) {
+      if (isPS4 && is67x) {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', '672entrypoint.js', false);
         xhr.send('');
@@ -118,7 +152,7 @@
       var fwVersion = match[2]; // "9.00", "9.03", etc.
       // Convert "9.00" to 0x900
       config_target = parseInt(fwVersion.replace('.', ''), 16);
-      window.log("Firmware PS" + device + " ini: " + fwVersion + "\n");
+      window.log("Firmware PS" + device + " detected: " + fwVersion + "\n");
       // Supported FW lists
       var supportedFW = {
         "4": ["5.05", "6.70", "6.71", "6.72",
@@ -135,11 +169,10 @@
 
     window.addEventListener('load', function () {
       outputConsole.textContent = ""; // Clear console log
-      // window.log("Initializing Exploit Chain...");
 
       try {
         if (!window.checkPlatformIsSupported()) {
-          window.log("Mohon maaf, hanya untuk PS4 5.05, 6.70 - 9.60", "red");
+          window.log("عذراً، هذا المجلد مخصص فقط لإصدارات PS4 من 5.05 وحتى 9.60", "red");
         } else {
           if (config_target === 0x505) { // 5.05
             window.log("Starting 5.05 Exploit...");
@@ -153,5 +186,6 @@
         window.log("An error occured during exploit: " + error, "red");
       }
     });
-  </script>
+</script>
+</body>
 </html>
