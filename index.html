@@ -73,24 +73,37 @@
     }
     var bug = null, why = "";
     var forced = params.get("bug");
-    if (forced === "lapse" || forced === "poops") {
+
+    // دمج فحص الإصدار القديم من السكريبت الجديد
+    if (forced === "old_fw" || forced === "lapse" || forced === "poops") {
         bug = forced; why = "forced via ?bug=" + forced;
     } else if (!key) {
         why = "user-agent is not a PlayStation 4";
-    } else if (fwnum <= 1202) {
+    } else if (fwnum >= 500 && fwnum <= 960) {
+        // إذا كان النظام بين 5.00 و 9.60 (الملفات المأخوذة من السكريبت الجديد)
+        bug = "old_fw"; why = "5.00 <= " + key + " <= 9.60 (Redirecting to 505_960)";
+    } else if (fwnum > 960 && fwnum <= 1202) {
         bug = "lapse"; why = key + " <= 12.02";
     } else if (fwnum >= 1250) {
         bug = "poops"; why = key + " >= 12.50";
     } else {
         why = key + " -- no working bug (lapse ends at 12.02, poops needs 12.50)";
     }
+    
     detEl.innerHTML = "firmware <b>" + (key || "unknown") + "</b>"
         + " &middot; bug <b>" + (bug || "none") + "</b> &middot; " + why;
 
     if (!bug) { setState("UNSUPPORTED FIRMWARE", "bad"); return; }
 
-    var target = (bug === "lapse" ? "run_lapse.html" : "run_poops.html")
-        + location.search;
+    // تحديد مسار التوجيه بناءً على الإصدار المستهدف
+    var target = "run_lapse.html";
+    if (bug === "old_fw") {
+        target = "505_960/index.html"; // المسار القادم من السكريبت الجديد
+    } else if (bug === "poops") {
+        target = "run_poops.html";
+    }
+    target += location.search;
+
     function go() { setState("loading " + bug + " chain...", "warn");
                     location.replace(target); }
 
