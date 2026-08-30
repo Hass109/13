@@ -23,6 +23,12 @@ patches/1250.bin #5baaf0bb2663064db1eb1bfd976bc3aa5087ab7f0963648cb6fcb216adce71
 patches/1300.bin #be70930d96c40b8d7ba03a57e2ea5c834b606fb74ed118756b4dea7fffaa1d57
 core.js?v=10 #3acf7e09988f10f800ca22bac1d4965b89ebb5ce2da4850089918fd1a457df4e
 
+# === ملفات المجلد الفرعي الجديد للإصدارات القديمة (5.05 - 9.60) ===
+505_960/index.html
+505_960/505exploit.js
+505_960/main.js
+505_960/672entrypoint.js
+
 NETWORK:
 *
 
