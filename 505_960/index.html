@@ -16,12 +16,6 @@
     height: 100vh;
   }
   
-  /* الحاوية الجديدة المضافة لدفع السطر لأسفل ومنع التداخل مع الهيدر والشعار */
-  .container {
-    margin-top: 40px; /* دفع السطر بالكامل لأسفل لتبعده عن الشعار ورقم الهاتف */
-    text-align: center;
-  }
-  
   /* صندوق عرض البيانات شبه الشفاف المتناسق */
   #wrap { 
     padding:16px 18px; 
@@ -50,12 +44,15 @@
   }
   
   /* الهيدر العلوي المطابق للهوست الرئيسي */
-#brand {
-  text-align: center;
-  padding: 20px 10px 10px;
-  background: transparent; /* إزالة خلفية البارت بالكامل ليكون شفافاً */
-  border-bottom: none;     /* إزالة الخط الفاصل السفلي */
-}
+#brand { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    background: transparent !important; 
+    border: none !important;
+    margin-bottom: 20px;
 
 /* تعديل اللوجو ليكون في المنتصف بالأعلى وبدون حدود */
 #brand img {
