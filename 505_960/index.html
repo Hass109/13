@@ -16,6 +16,12 @@
     height: 100vh;
   }
   
+  /* الحاوية الجديدة المضافة لدفع السطر لأسفل ومنع التداخل مع الهيدر والشعار */
+  .container {
+    margin-top: 40px; /* دفع السطر بالكامل لأسفل لتبعده عن الشعار ورقم الهاتف */
+    text-align: center;
+  }
+  
   /* صندوق عرض البيانات شبه الشفاف المتناسق */
   #wrap { 
     padding:16px 18px; 
@@ -36,7 +42,7 @@
   #console {
     font-family: monospace;
     color: #7fd0a0; /* لون أخضر مريح للعين أثناء التحميل */
-    padding: 12px 0;
+    padding: 11px 0;
     font-size: 16px;
     text-align: left;
     margin: 0;
