@@ -3,10 +3,11 @@
 <html lang="en" manifest="../cache.appcache">
 <head>
 <meta charset="utf-8">
+
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Hassoun&Gaming - Exploit (5.05 - 9.60)</title>
 <style>
-  /* تطابق كامل مع خلفية وتصميم الهوست الرئيسي */
+  /* تحويل الصفحة بالكامل لنظام فليكس لتوسيط المحتوى في المنتصف التلقائي */
   html, body { 
     margin:0; 
     padding:0; 
@@ -15,81 +16,93 @@
     color:#c8ced8;
     font:15px/1.45 "Segoe UI", system-ui, sans-serif; 
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* توسيط عمودي كامل */
+    align-items: center;     /* توسيط أفقي كامل */
+    box-sizing: border-box;
+  }
+  
+  /* حاوية رئيسية تجمع الهيدر والصندوق معاً لضمان بقائهما في السنتر */
+  .center-container {
+    width: 100%;
+    max-width: 800px; /* تحديد أقصى عرض متناسق لشاشات التلفزيون */
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
   }
   
   /* صندوق عرض البيانات شبه الشفاف المتناسق */
   #wrap { 
     padding:16px 18px; 
     background: rgba(11, 13, 16, 0.25); 
-    margin: 20px; 
+    margin: 20px 0 0 0; 
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    text-align: center;
   }
   
   .main-title { 
-    font-size:22px; 
+    font-size:25px; 
     font-weight:700; 
     margin:0 0 12px;
     color: #e6ebf2;
+    text-shadow: 0 0 8px rgba(230, 235, 242, 0.5);
   }
 
-  /* تصميم الكونسول النصي ليتماشى مع الوان الهوست */
+  /* تصميم الكونسول النصي ليتماشى مع الوان الهوست ومقاس خط poops */
   #console {
     font-family: monospace;
-    color: #7fd0a0; /* لون أخضر مريح للعين أثناء التحميل */
-    padding: 11px 0;
-    font-size: 16px;
+    color: #7fd0a0; 
+    padding: 12px 0;
+    font-size: 11px; 
     text-align: left;
     margin: 0;
     white-space: pre-wrap;
   }
   
-  /* الهيدر العلوي المطابق للهوست الرئيسي */
-#brand { 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 0;
-    background: transparent !important; 
-    border: none !important;
-    margin-bottom: 20px;
+  /* الهيدر العلوي الشفاف المنسق في المنتصف */
+  #brand {
+    text-align: center;
+    padding: 10px;
+    background: transparent; 
+    border-bottom: none;     
+  }
 
-/* تعديل اللوجو ليكون في المنتصف بالأعلى وبدون حدود */
-#brand img {
-  display: block;
-  width: 50px;       /* تكبير حجم اللوجو قليلاً ليناسب الواجهة */
-  height: 50px;
-  margin: 0 auto 12px; /* وضعه في المنتصف التلقائي وإضافة مسافة سفلية */
-  border-radius: 50%;
-  border: none;       /* إلغاء أي حدود مسبقة */
-}
+  /* اللوجو بدون حدود مع مسافة سفلية متناسقة */
+  #brand img {
+    display: inline-block;
+    width: 50px;       
+    height: 50px;
+    margin-bottom: 12px; 
+    border-radius: 50%;
+    border: none;       
+  }
 
-/* السطر الأول: اسم الهوست مع تفعيل تأثير توهج النيون الأبيض المضيء */
-#brand b {
-  display: block;     /* جعله في سطر مستقل تحت الصورة */
-  font-size: 35px;    /* حجم خط كبير وواضح */
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: #e6ebf2;
-  text-shadow: 0 0 10px rgba(230, 235, 242, 0.8), 
-               0 0 20px rgba(230, 235, 242, 0.4); /* توهج مزدوج قوي */
-}
+  /* السطر الأول: اسم الهوست مع تفعيل تأثير توهج النيون الأبيض المضيء */
+  #brand b {
+    display: block;     
+    font-size: 35px;    
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #e6ebf2;
+    text-shadow: 0 0 10px rgba(230, 235, 242, 0.8), 
+                 0 0 20px rgba(230, 235, 242, 0.4); 
+  }
 
-/* السطر الثاني: الرقم مع تفعيل تأثير توهج النيون الأخضر المأخوذ من الـ poops */
-#brand span {
-  display: block;     /* جعله في سطر مستقل تحت الاسم */
-  font-size: 28px; 
-  color: #7fd0a0;
-  margin-top: 6px;
-  letter-spacing: 0.08em;
-  font-weight: 600;
-  text-shadow: 0 0 10px rgba(127, 208, 160, 0.8), 
-               0 0 20px rgba(127, 208, 160, 0.4); /* توهج أخضر نيون متناسق */
-}
+  /* السطر الثاني: الرقم مع تفعيل تأثير توهج النيون الأخضر */
+  #brand span {
+    display: block;     
+    font-size: 25px; 
+    color: #7fd0a0;
+    margin-top: 6px;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(127, 208, 160, 0.8), 
+                 0 0 20px rgba(127, 208, 160, 0.4); 
+  }
 
-
-  /* تصميم التذييل السفلي بشكل متناسق وشبه شفاف */
+  /* تصميم التذييل السفلي بشكل متناسق وشبه شفاف ومثبت بالأسفل تماماً */
   .footer {
     text-align: center;
     position: fixed;
@@ -107,123 +120,30 @@
 </head>
 <body>
 
-<!-- الهيدر العلوي المطابق تماماً للهوست الرئيسي -->
-<div id="brand">
-  <img src="../logo_raw.png" alt="" width="48" height="48">
-  <b>Hassoun & Gaming</b>
-  <span>0123783040</span>
+<!-- الحاوية الذكية التي تضمن توسيط الواجهة بالكامل عمودياً وأفقياً -->
+<div class="center-container">
+
+  <!-- الهيدر العلوي الشفاف المتناسق -->
+  <div id="brand">
+    <img src="../logo_raw.png" alt="" width="48" height="48">
+    <b>Hassoun & Gaming</b>
+    <span>0123783040</span>
+  </div>
+
+  <!-- صندوق الثغرة والمخرجات النصية الموسطة تلقائياً -->
+  <div id="wrap">
+    <div class="main-title">Auto JB PS4 5.05, 6.70 - 9.60</div>
+    <pre id="console"></pre>
+  </div>
+
 </div>
 
-<div id="wrap">
-  <div class="main-title">Auto JB PS4 5.05, 6.70 - 9.60</div>
-  <!-- هنا تظهر مخرجات ورسائل الثغرة لتشبه ستايل الهوست الأصلي -->
-  <pre id="console"></pre>
-</div>
-
-<!-- التذييل السفلي منسق بالوان الهوست المتطابقة -->
+<!-- التذييل السفلي الثابت في أسفل الشاشة تماماً -->
 <div class="footer">
   Special Thanks to:<br>
-  <strong>TheFloW - SpecterDev - ChendoChap - Znullptr - Sleirsgoevy - SiSTRo - Feyzee - CM</strong><br>
-  And everyone who helps improve the PS4 scene
+  <strong>دنقلا - السوق الكبير - تقاطع زين سابقا</strong><br>
+   PS2 PS3 PS4 PS5
 </div>
 
-<script>
-    // 6.72 JB globals
-    window.entrypoint672_result = 0;
-    window.exploitsetup672_result = 0;
-    // Device FW version holder
-    var config_target = 0x0000;
-    // Logging utility
-    var outputConsole = document.getElementById("console");
-    window.log = function (msg, color) {
-      if (color === undefined) color = "#7fd0a0"; // اللون الافتراضي متناسق مع نجاح الكاش الأصلي
-      if (color === "red") color = "#d08a7f";     // لون الخطأ مطابق لـ "bad" في الهوست الأصلي
-      outputConsole.innerHTML += '<span style="color:' + color + '">' + msg + '</span><br>';
-    };
-    // Get Script for ES5 JavaScript
-    window.getScriptES5 = function (source, callback) {
-      var gs = document.createElement('script');
-      gs.src = source;
-      gs.onload = callback;
-      gs.async = false;
-      document.body.appendChild(gs);
-    }
-    // Event definitions
-    window.addEventListener('error', function (event) {
-      var reason = event.error;
-      var msg = 'Unhandled error\n';
-      if (reason) {
-        msg += reason + '\n';
-        if (reason.sourceURL)
-          msg += reason.sourceURL;
-        if (reason.line)
-          msg += ':' + reason.line;
-        if (reason.column)
-          msg += ':' + reason.column;
-        if (reason.stack)
-          msg += '\n' + reason.stack;
-      } else {
-        msg += 'No error object';
-      }
-      alert(msg);
-      return true;
-    });
-    // Dynamic 6.72 entrypoint loader
-    window.addEventListener('load', function () {
-      var ua = navigator.userAgent;
-      var isPS4 = ua.indexOf("PlayStation 4") !== -1;
-      var is67x = ((ua.indexOf(" 6.70") !== -1) || (ua.indexOf(" 6.71") !== -1) || (ua.indexOf(" 6.72") !== -1));
-      if (isPS4 && is67x) {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', '672entrypoint.js', false);
-        xhr.send('');
-        if (xhr.status === 200)
-          eval.call(top.window, xhr.responseText);
-      }
-    });
-    window.checkPlatformIsSupported = function () {
-      var userAgent = navigator.userAgent;
-      var psRegex = /PlayStation (4|5)[ \/]([0-9]{1,2}\.[0-9]{2})/;
-      var match = userAgent.match(psRegex);
-      if (!match) return false;
-      var device = match[1];    // "4" or "5"
-      var fwVersion = match[2]; // "9.00", "9.03", etc.
-      // Convert "9.00" to 0x900
-      config_target = parseInt(fwVersion.replace('.', ''), 16);
-      window.log("Firmware PS" + device + " detected: " + fwVersion + "\n");
-      // Supported FW lists
-      var supportedFW = {
-        "4": ["5.05", "6.70", "6.71", "6.72",
-              "7.00", "7.01", "7.02", "7.50", "7.51", "7.55",
-              "8.00", "8.01", "8.03", "8.50", "8.52",
-              "9.00", "9.03", "9.04", "9.50", "9.51", "9.60"],
-        "5": ["0.00"]
-      };
-      // Check device exists
-      if (!supportedFW[device]) return false;
-      // FW control
-      return supportedFW[device].indexOf(fwVersion) !== -1;
-    }
-
-    window.addEventListener('load', function () {
-      outputConsole.textContent = ""; // Clear console log
-
-      try {
-        if (!window.checkPlatformIsSupported()) {
-          window.log("عذراً، هذا المجلد مخصص فقط لإصدارات PS4 من 5.05 وحتى 9.60", "red");
-        } else {
-          if (config_target === 0x505) { // 5.05
-            window.log("Starting 5.05 Exploit...");
-            window.getScriptES5('505exploit.js', function () { setTimeout(exploit505, 3000); });
-          } else {
-            window.log("Starting main exploit...");
-            window.getScriptES5('main.js', function () { setTimeout(doJailBreak, 1500); });
-          }
-        }
-      } catch (error) {
-        window.log("An error occured during exploit: " + error, "red");
-      }
-    });
-</script>
 </body>
 </html>
