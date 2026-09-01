@@ -48,7 +48,7 @@
   
   /* السطر الأول (الاسم باللون الأحمر) */
   #brand .title-main { 
-    font-size: 35px !important; 
+    font-size: 45px !important; 
     font-weight: 900; 
     text-transform: uppercase;
     color: #f50707; 
@@ -58,11 +58,42 @@
 
   /* السطر الثاني (الرقم باللون الأخضر) */
   #brand .title-sub {
-    font-size: 28px !important; 
+    font-size: 30px !important; 
     font-weight: 900;
     color: #00572c; 
     text-shadow: 0 0 8px rgba(255, 215, 64, 0.4), 0 2px 5px rgba(0,0,0,0.9);
     margin-top: 4px; 
+  }
+
+  .footer {
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 13px;
+    color: #5c6672; /* اللون الرمادي الأساسي للهوست */
+    background: rgba(14, 17, 22, 0.25); /* خلفية شفافة ناعمة */
+    border-top: 1px solid #1e2732;
+    box-sizing: border-box;
+    z-index: 10;
+  }
+
+  .footer strong { 
+    color: #8b95a3; /* رمادي فاتح وواضح */
+    font-weight: 700;
+    display: inline-block;
+    margin: 1px 0;
+  }
+
+  .footer span {
+    display: block;
+    font-size: 11px;
+    color: #8b95a3; 
+    margin-top: 3px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
   }
 
   /* حاوية التغليف المحمية والمطلوبة برمجياً لملف الـ JS لكي يبدأ التفعيل دون تعليق */
@@ -75,7 +106,7 @@
 
   /* التفاصيل والتعليمات */
   #details { 
-    font-size: 16px; 
+    font-size: 14px; 
     color: #29374d; 
     margin-bottom: 15px; 
     text-align: center;
@@ -86,8 +117,8 @@
 
   /* حالة النظام الحالية بتأثير النيون المتوهج */
   #state { 
-    font-size: 26px; 
-    font-weight: 900; 
+    font-size: 15px; 
+    font-weight: 600; 
     margin-bottom: 20px; 
     text-align: center;
     text-transform: uppercase;
@@ -108,7 +139,7 @@
     padding: 15px 20px; 
     overflow-y: auto; 
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8);
-    margin-bottom: 10px;
+    margin-bottom: 60px;
   }
 
   /* ألوان الحالات المتوهجة للأكواد */
@@ -131,7 +162,7 @@
   <div id="wrap">
     <div id="state" class="warn">loading lapse chain...</div>
     
-    <div id="details">حالة المتصفح: يرجى الانتظار حتى يتم تحميل المكونات وتفعيل ثغرة الـ <b>Poops</b> تلقائياً.</div>
+    <div id="details">حالة المتصفح: يرجى الانتظار حتى يتم تحميل المكونات وتفعيل ثغرة الـ <b>lapse</b> تلقائياً.</div>
     
     <div id="out"></div>
   </div>
@@ -140,7 +171,7 @@
 <!-- كود الفحص والمراقبة الآمن المتوافق مع متصفح الـ PS4 -->
 <script>
   // 1. فحص فوري لمنع تكرار التفعيل إذا تم بنجاح سابقاً في الجلسة
-  if (localStorage.getItem("ps4_lapse_done") === "true") {
+  if (localStorage.getItem("ps4_poops_done") === "true") {
       document.addEventListener("DOMContentLoaded", function() {
           var stateEl = document.getElementById("state");
           var detailsEl = document.getElementById("details");
@@ -151,7 +182,7 @@
               stateEl.className = "ok";
           }
           if (detailsEl) {
-              detailsEl.innerHTML = "تنبيه: <b style='color:#69f0ae;'>تم تفعيل الجيلبريك بنجاح بالفعل سابقاً!</b> يمكنك الخروج وتشغيل ألعابك.";
+              detailsEl.innerHTML = "تنبيه: <b style='color:#69f0ae;'> تفعيل الجيلبريك  !</b>.";
           }
           if (outEl) {
               outEl.innerHTML = "<span class='ok'>[INFO] Exploit already executed successfully inside this session.\n[INFO] No need to run again. Press PS Button to exit.</span>";
