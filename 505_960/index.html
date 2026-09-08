@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" manifest="cache.appcache">
+<html lang="en" manifest="../cache.appcache">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -190,9 +190,14 @@
     var match = userAgent.match(psRegex);
     if (!match) return false;
     
-    // استخراج القيم بالفهارس الصحيحة بطريقة آمنة تماماً ومفحوصة
-    var device = match[1];    
-    var fwVersion = match[2]; 
+    // استخراج نصي عالي التوافق لتجنب انهيار المتصفح بسبب كائنات المصفوفات
+    var deviceStart = userAgent.indexOf("PlayStation ") + 12;
+    var device = userAgent.substring(deviceStart, deviceStart + 1); // استخراج "4" أو "5"
+    
+    var slashIdx = userAgent.indexOf("/", deviceStart);
+    var spaceIdx = userAgent.indexOf(" ", deviceStart);
+    var separatorIdx = (slashIdx !== -1) ? slashIdx : spaceIdx;
+    var fwVersion = userAgent.substring(separatorIdx + 1, separatorIdx + 5); // استخراج التحديث مثل "9.00"
     
     config_target = parseInt(fwVersion.replace('.', ''), 16);
     window.log("نظام التشغيل المكتشف لجهاز PS" + device + " هو: " + fwVersion + "\n", "#ffffff");
@@ -204,6 +209,7 @@
             "9.00", "9.03", "9.04", "9.50", "9.51", "9.60"],
       "5": ["0.00"]
     };
+    
     if (!supportedFW[device]) return false;
     return supportedFW[device].indexOf(fwVersion) !== -1;
   }
