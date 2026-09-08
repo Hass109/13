@@ -29,6 +29,7 @@
     padding: 10px;
     box-sizing: border-box;
     text-align: center;
+    margin-bottom: 70px; /*
   }
   
   /* صندوق عرض البيانات شبه الشفاف المتناسق */
@@ -60,7 +61,9 @@
     white-space: pre-wrap;
     background: rgba(0,0,0,0.3);
     border-radius: 4px;
-    min-height: 70px;
+    min-height: 60px; /* تقليص الارتفاع الأدنى لمربع الأوامر */
+    max-height: 250px; /* حد أقصى للارتفاع لضمان عدم التمدد لأسفل والتداخل مع أي عنصر */
+    overflow-y: auto; /* شريط تمرير داخلي يظهر تلقائياً إذا زادت أسطر الجيلبريك */
   }
   
   /* الهيدر العلوي الشفاف المنسق في المنتصف */
@@ -84,7 +87,7 @@
   /* السطر الأول: اسم الهوست مع تفعيل تأثير توهج النيون الأبيض المضيء */
   #brand b {
     display: block;     
-    font-size: 45px;    
+    font-size: 40px;    
     font-weight: 700;
     letter-spacing: 0.12em;
     color: #cc040b;
@@ -115,7 +118,7 @@
     font-size: 14px;
     color: #8b95a3;
     background: rgba(14, 17, 22, 0.15);
-    border-top: 1px solid #5482ba;
+    border-top: 1px solid #0c131c;
   }
   .footer strong { color: #ffffff; }
   .credits { font-size: 11px; color: #5482ba; margin-top: 5px; }
